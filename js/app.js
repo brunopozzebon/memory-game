@@ -13,10 +13,11 @@ let restart = $(".restart").click(function(){
 	location.reload();
 });
 
+let repeat =true;
 group.click(function(evt){
 	let card = $(evt.target);
 	//If the card is already open or correct, nothing happens;
-	if(card.is('li')&&!(card.attr('class').split(' ')[1]==="correct")&&!(card.attr('class').split(' ')[1]==="open")&&!(card.attr('class').split(' ')[1]==="wrong")){
+	if(repeat&&card.is('li')&&!(card.attr('class').split(' ')[1]==="correct")&&!(card.attr('class').split(' ')[1]==="open")&&!(card.attr('class').split(' ')[1]==="wrong")){
 		/*
 		Verify if have another card already turn, if yes, 
 		verify if the combination of cards is correct,
@@ -24,6 +25,7 @@ group.click(function(evt){
 		*/
 		if(firstOverturned>=0){
 			//Add moves and verify the stars
+			repeat = false;
 			verifyStatus();
 			if(verify(card)){
 				correctAnimation(card);
@@ -41,6 +43,9 @@ group.click(function(evt){
 				wrongAnimation(card);
 				firstOverturned=-1;
 			}
+			setTimeout(function(){
+				repeat=true;
+			},500);
 		}else{
 			card.addClass('open');
 			firstOverturned = $( ".deck li" ).index(card);	
@@ -70,18 +75,15 @@ function correctAnimation(card){
 function verifyStatus(){
 	moves.textContent = ++movesInNumber;
 	switch(movesInNumber){
-		case 18:
-		numOfStars--;
-		$(".stars i:eq(0)").addClass("fa-star-o").removeClass("fa-star");
-		return;
 		case 14:
 		numOfStars--;
 		$(".stars i:eq(1)").addClass("fa-star-o").removeClass("fa-star");
 		return;
-		case 10:
+		case 11:
 		numOfStars--;
 		$(".stars i:eq(2)").addClass("fa-star-o").removeClass("fa-star");
 		return;
+	
 	}
 }
 
