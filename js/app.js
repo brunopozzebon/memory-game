@@ -7,6 +7,14 @@ let moves = document.getElementsByClassName("moves")[0];
 let movesInNumber = parseInt(moves.textContent);
 let body = document.getElementsByTagName("body")[0];
 let numOfStars = 3;
+let timer = document.getElementById('timer');
+let time = 0;
+
+setInterval(function(){ 
+	++time;
+	timer.textContent = convertTime(); 
+	console.log(time);
+}, 1000);
 
 //Function to button of restart game
 let restart = $(".restart").click(function(){
@@ -83,6 +91,13 @@ function verifyStatus(){
 		$(".stars i:eq(2)").addClass("fa-star-o").removeClass("fa-star");
 		return;
 	}
+}
+
+function convertTime(){
+	const hour = Math.floor(time/3600);
+	const min = Math.floor((time-(hour*3600))/60);
+	const sec = Math.floor((time-((hour*3600)+(min*60))));
+	return hour+":"+min+":"+sec;
 }
 
 
