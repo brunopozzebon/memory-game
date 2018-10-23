@@ -10,6 +10,8 @@ let numOfStars = 3;
 let timer = document.getElementById('timer');
 let time = 0;
 
+reOrder();
+
 setInterval(function(){ 
 	++time;
 	timer.textContent = convertTime(); 
@@ -102,6 +104,12 @@ function convertTime(){
 	return hour+":"+min+":"+sec;
 }
 
-
+function reOrder(){
+	for (var i = 0; i < 16; i++) {
+		let randomPosition = Math.floor(Math.random()*16);
+		let $p=$(".deck li:eq(0)");
+		$(".deck li:eq("+randomPosition+")").after($p);
+	}
+}
 
  
