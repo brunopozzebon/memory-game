@@ -1,26 +1,10 @@
 # Memory Game Project
-This is a simples online memory game, that works with HTML, CSS and Javascript.
+A memory game made with Html, Css and Javascript
 
-## Table of Contents
-* [Instructions to download](#download)
-* [Instructions to play](#play)
-* [Dependencies](#dependencies)
-* [Contributing](#contributing)
+## :coffee: How to run
+This project is composed only for statical files, so, to run it. You just need to clone this repository, and drag the html file in the browser. For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
 
-## Instructions to download
-Just download or clone this project and run the file index.html in browser(Latest version of Chrome or Mozilla preferably)
-
-## Instructions to play
-A player must click in a card, and it overturns and reveals his symbol
-Then, the player must turn another card, trying to find the corresponding card.
-If the cards are the same, both face up
-If the cards are not equal, both cards must face down again
-The game end, when all the cards are facing upwards
-
-## Dependencies
-The game use just use Jquery CDN, so it's just download and play the game
-
-## Contributing
+## :honeybee: Contributing
 
 This repository is the starter code for _all_ [Udacity](https://br.udacity.com/) students. Therefore, we most likely will not accept pull requests.
 
